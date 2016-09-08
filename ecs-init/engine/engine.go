@@ -23,6 +23,7 @@ import (
 	"github.com/aws/amazon-ecs-init/ecs-init/exec"
 	"github.com/aws/amazon-ecs-init/ecs-init/exec/iptables"
 	"github.com/aws/amazon-ecs-init/ecs-init/exec/sysctl"
+	"github.com/aws/amazon-ecs-init/ecs-init/version"
 
 	log "github.com/cihub/seelog"
 )
@@ -189,6 +190,11 @@ func (e *Engine) PostStop() error {
 	// addred in the first place
 	e.credentialsProxyRoute.Remove()
 	return err
+}
+
+// Info prints out the information of ecs-init
+func (e *Engine) Version() error {
+	fmt.Println(version.String())
 }
 
 type _engineError struct {

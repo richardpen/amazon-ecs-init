@@ -84,6 +84,10 @@ func actions(engine *engine.Engine) map[string]action {
 			function:    engine.PostStop,
 			description: "Cleanup procedure for the ECS Agent",
 		},
+		"version": action{
+			function:    engine.Version,
+			description: "Print out the version info of ecs-init",
+		},
 	}
 }
 
